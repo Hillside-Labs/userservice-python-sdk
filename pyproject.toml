@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "userservice"
+version = "0.0.1"
+authors = [
+  { name="Eric Larson", email="eric@hillsidelabs.io" },
+]
+description = "A grpc based client for the UserUp Userservice"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+	     "grpcio",
+	     "grpcio-tools",
+]
+
+[project.urls]
+Homepage = "https://github.com/hillside-labs/userservice-python"
+Issues = "https://github.com/hillside-labs/userservice-python/issues"
