@@ -1,4 +1,5 @@
 import requests
+from urllib.parse import urljoin
 
 class Conn:
     def __init__(self, base_url):
@@ -6,4 +7,4 @@ class Conn:
         self.session = requests.Session()
 
     def build_url(self, endpoint):
-        return f"{self.base_url}{endpoint}"
+        return urljoin(self.base_url, endpoint)
