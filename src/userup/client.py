@@ -10,6 +10,10 @@ class Client:
         self.conn = Conn(base_url)
 
     def track(self, user_id, event_type, data):
+        # Ensure event_type is an instance of EventType
+        if not isinstance(event_type, EventType):
+            raise TypeError("event_type must be an instance of EventType")
+
         attributes = {
             "type": event_type.name(),
             "source": config.source,
@@ -17,7 +21,8 @@ class Client:
             "datacontenttype": "application/json",
         }
         # Validate and format the data based on the event type
-        if event_type == Click().type_str:
+        if isinstance(event_type, Click):
+            data = event_type.validate(data)
             data = Click().validate(data)
 
         # Use the create_event method to send the event
