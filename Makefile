@@ -2,4 +2,12 @@ bootstrap:
 	hatch env create
 
 protos:
-	python -m grpc_tools.protoc -I ../userservice/rpc/userapi --python_out=./src/userservice --pyi_out=./src/userservice --grpc_python_out=./src/userservice ../userservice/rpc/userapi/user.proto
+  mkdir protos
+  cp ../userservice-proto/user.proto ./protos/
+
+	python -m grpc_tools.protoc \
+		--proto_path ../userservice-proto/ \
+		--python_out=./src/userservice \
+		--pyi_out=./src/userservice \
+		--grpc_python_out=./src/userservice \
+		../userservice-proto/user.proto
