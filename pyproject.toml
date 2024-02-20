@@ -18,7 +18,8 @@ classifiers = [
 ]
 
 dependencies = [
-    "cloudevents>=1.2.0"
+    "cloudevents>=1.2.0",
+		"requests"
 ]
 
 [project.urls]
